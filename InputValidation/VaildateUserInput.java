@@ -2,62 +2,78 @@ import java.util.*;
 
 public class VaildateUserInput {
 	
-	public boolean IsNan(value)
+	public static boolean IsNan(String value)
 	{
+		boolean isNan = false;
+		try
+		{
+			int num = Integer.parseInt(value);
+			
+			if(num > 10 || num < 1)
+			{
+				isNan = true;
+			}
+		}
+		catch(NumberFormatException x)
+		{
+			return true;
+		}
 		
-		return true;
+	return isNan;
+		
 	}
 	public static void main(String[] args)
 	{
-		int input = 0;
+		String input = "";
 		
 		Scanner scanner =  new Scanner(System.in);
+		
 		try
 		{
 			do
 			{
 				System.out.println("Enter a number from 1 to 10: ");
-				input = scanner.nextInt();
+				input = scanner.nextLine();
 				
 			}
-			while(input > 10 || input < 1);
+			while(IsNan(input));
 		}
 		catch(Exception x)
 		{
 			x.getMessage();
-			throw new Exception("The value " + input + "is not a number");
+			
 		}
 		
 		switch(input)
 		{
-		case 1:
+		case "1":
 			System.out.println("Happy Thanksgiving");
 			break;
-		case 2:
+		case "2":
 			System.out.println("Meery Christmas");
 			break;
-		case 3:
+		case "3":
 			System.out.println("Happy Holidays");
 			break;
-		case 4:
+		case "4":
 			System.out.println("Happy Veterans Day");
 			break;
-		case 5:
+		case "5":
 			System.out.println("Happy New Years");
 			break;
-		case 6:
+		case "6":
 			System.out.println("2022 is Coming");
 			break;
-		case 7:
+		case "7":
 			System.out.println("Happy Birthday to me");
 			break;
-		case 8:
+		case "8":
 			System.out.println("Practicing my Java Skills");
 			break;
-		case 9:
+		case "9":
 			System.out.println("I love Programming");
 			break;
-		case 10:
+		case "10":
 			System.out.println("I ran out on words");
 			break;
 		}
